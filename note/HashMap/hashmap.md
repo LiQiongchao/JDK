@@ -224,7 +224,9 @@ final Node<K,V>[] resize() {
 
 1111
 
-我们只需hashCode & 8即可，这便是源码中preserve order部分所做的。
+`(oldCap - 1) & hash == (2 * oldCap - 1) & hash` ，所以扩容后的位置在哪，就看 `hash & 8` （扩展前的 oldCap 的最高值）是不是1，是的话需要再向后移动 8 个位置 
+
+我们只需[hashCode & 8](https://blog.csdn.net/u010425839/article/details/106620440/)即可，这便是源码中preserve order部分所做的。
 
 那么为什么要对一个bin中的每一个元素都要进行判断呢?因为比如对于bin 4，在容量为8的情况下，hashCode为4和12都会进入到这个位置，而扩容后就不一定了。
 
