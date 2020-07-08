@@ -16,4 +16,18 @@ public class HashMapTest {
         map.put("qq", "11");
     }
 
+    @Test
+    public void moveBitTest () {
+        int n = 10;
+        n |= n >>> 1;
+        n |= n >>> 2;
+        System.out.println(n);
+        System.out.println(2 >>> 1);
+        System.out.println(2>>>2);
+        System.out.println(2>>>4);
+        // 1
+        //0
+        //0
+    }
+
 }

@@ -25,6 +25,8 @@ public V put(K key, V value) {
 putVal源码:
 
 ```java
+// 第三个参数 encist
+// 第四个参数 onlyIfAbsent 如果是 true，那么只有 key 不存在的时候都会 put
 final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
     Node<K,V>[] tab; Node<K,V> p; int n, i;
     //1.初始化
